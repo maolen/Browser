@@ -1,0 +1,53 @@
+﻿<Window x:Class="Browser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Browser"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        mc:Ignorable="d"
+        KeyDown="TabEnterForOpenWebSite"
+        Title="Браузер" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="620*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="361*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Column="1" x:Name="addressTextBox" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="564" Height="30" Grid.ColumnSpan="2"/>
+        <WebBrowser x:Name="browser" Grid.Row="2" Margin="0,2,0,0" Grid.ColumnSpan="5"/>
+
+        <Button
+  Style="{StaticResource MaterialDesignIconButton}"
+  HorizontalAlignment="Center"  VerticalAlignment="Center"
+  Content="{materialDesign:PackIcon Kind=ArrowRight}" Width="48" Click="OpenWebSite"  Grid.Row="1" Grid.Column="3" Height="48"/>
+        <TabControl x:Name="tabControl" Grid.Row="0" Grid.ColumnSpan="5">
+            <TabItem Header="Новая вкладка" Margin="-2,-2,-2,-4">
+                <Grid Background="#FFE5E5E5" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="129*"/>
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="526*"/>
+                        <ColumnDefinition Width="51*"/>
+                        <ColumnDefinition Width="47*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Button x:Name="addTabButton" Click="AddTab" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=Plus}"  VerticalAlignment="Center" Height="30" Margin="4,0,10,0" RenderTransformOrigin="0.562,0.338" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>
